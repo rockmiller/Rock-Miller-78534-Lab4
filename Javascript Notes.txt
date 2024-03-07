@@ -1,0 +1,182 @@
+Javascript Notes
+side effects = change the internal state of the computer, for statements after
+binding = variable (actually, a link to a space in memory - "grasping")
+- use camel case (camelCase) to name by convention
+environment = the collection of bindings and their values
+block = a discrete piece of programming (in { }) - semicolon ends each line
+function = program wrapped into a values (called, invoked, or applied)
+return = use this statement so that the function returns a result value for further use
+boolean = true or false (lower-case)
+
+let = declares a binding that will change
+const = declares a binding that will stay the same. 
+
+
+prompt("prompt text") pops up a bare-bones entry window (for testing)
+console.log (writes text or value or results to the console in the browser)
+Math function provides several methods for doing math operations (e.g. Math.max)
+Number function to convert value to a Number.
+
+Conditional execution (condition in parenthesis, block in { }
+condition operators (&& for and, || for or, ! for not)
+condition = an expression
+condition result is boolean - true or false
+if (condition) { - elseif (condition) { - else {
+if (condition) { block }
+
+while loop
+while (condition) {block}
+use a counter variable (there are a number of increment operators)
+good practice - counter from zero
+
+do loop - executes body at least once - tests condition only after first execution
+(p 31 see sample of required entry of text in a prompt box)
+do {yourName = prompt("enter your name");} while (!yourName);console.log(yourName); (while !yourName is true)
+
+for loop
+for (initialization; condition; update) {block}
+initialization happens before loop begins
+if condition is true, the block is executed
+update is executed after each loop iteration
+loop ends on false or on break
+
+for (let number = 0; number <=12; number = number + 2) {block}
+
+*break to jump out of the loop*
+continue to jump out of the body to the next loop iteration
+update uses iteration operators (e.g. += 1 or ++ to increment variable by one, -- to decrement)
+
+switch/case (older style)
+
+switch (*get a value*) 
+{
+case "value1": *do something;
+break; // can skip break if you want to do both *something and *something else before break
+
+case "value2": *do something else;
+break;
+
+default: *do the default thing;
+break;
+}
+comment
+// comment (for line)
+/* comment */ (for block)
+
+*funcname = function(parameter, parameter, etc.) {*block ending in return *expression;};
+square = function(x) {return x*x;); 
+
+a function can be within a function
+console.log(square(12)) 
+-> 144
+
+the body of a function is the block of code in {}
+return is used if the function is to generate a value
+value can be used in expressions by using *funcname(p1,p2) (or *funcname () if no parameters)
+*funcname without () returns the block code, not the value
+return is not used if the function just changes a state or does a thing
+function declaration - function square(x) {return x*x;};
+function declarations are executed at the top of the scope
+function declaration avoids need to explicitly define all functions up front
+arrow function - like a lambda function - two forms
+const square1 = (x) => { return x * x;};
+const square2 = x => x * x;
+const horn = () => console.log("toot"); - () means no parameters
+
+
+Scopes
+global = whole program - visible inside a block
+block = only within a block
+local = only within a function
+let, const = block scope; var = global scope (but deprecated)
+
+nested scope - function inside a function - inside function can see the outside local scope
+
+objects and arrays
+arrays in []
+arrays are indexed from zero
+array[0] references the first element in the array
+create an array by arr = []
+
+object = a data type - a collection of arbitrary properties
+
+property = values associated with an object (defined as k:v pairs within {})
+method = property that contains a function
+
+object.property or object[property] notation
+if i = 'length' then object[i] = object.length
+
+array methods
+.push = adds values to the end of an array
+.pop = returns the last value in an array
+.shift = add values to the start of an array
+.unshift = returns the first value in an array
+.indexOf(value) = returns index at which a value was found (or -1 if not found)
+.lastIndex0f(value) - index from the end 
+.slice(2,4) = third, fourth members of the array (non-inclusive, like Python)
+.concat(arr1 + arr2) = concatenates two arrays (.concat(arr1 + value) adds value to end of arr1
+
+let day1 = {
+	squirrel: false
+	events: ['work','touched tree','pizza','running'] <- this is an array stored as a value
+};
+
+day1.squirrel = false
+day1.events = *the array above
+
+assign a value to a property. day1.squirrel = true
+delete object.squirrel = *delete the value in property "squirrel"
+object.keys returns an array of keys
+object.assign copies properties from one object to another
+- keeps what isn't matched, overwrites what is matched, adds what is left overwrites
+
+function addEntry(events, squirrel) {journal.push({events, squirrel});}
+events is the array containing the (string) tags
+squirrel is true/false - did he turn into a squirrel?
+
+array loops (= iterating over an array in Python) - uses "of" word
+for (let entry of JOURNAL) {*do stuff };
+for (let number of numbers) {};
+
+can iterate over arrays, strongs, other data structures
+(in {} can do things like push or pop on the array)
+
+strings
+can't add a new property (undefined) - same for numbers and booleans
+.length(); - number of characters in the string
+.slice (2,4); - third and fourth characters
+.indexOf(array, "ee"); - can search for more than one character
+string.trim(); removes all whitespace characters (space, newline, etc)
+string.padStart(3,"0"); pads three zeros to the beginning of the string 
+string.split(',') - split string on comma character; puts pieces in an array
+string.repeat(3) - repeats 3 times
+
+Create a function that takes multiple parameters and covers all of them 
+function max(. . . numbers){}; *call could be an array
+
+let numbers = [5,1,7];
+console.log(max(...numbers));
+-> 7 *max of numbers in the array
+
+could be max(9,...numbers,7)
+-> 9
+
+interposing an array in a result array
+let words = ['never','fully']
+console.log('will',...words,"understand"]);
+-> ['will','never','fully','understand']
+
+
+
+Math object - things like sqrt, max/min, cos/sin etc.
+
+
+
+
+
+
+Questions
+(how to use console.log in Observable)
+
+
+

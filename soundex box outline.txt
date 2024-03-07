@@ -1,0 +1,27 @@
+Goal:
+Take a set of names, generate soundex codes for it, and pretty-print the names 
+function is getSoundexCode(name)
+use JSON to store the list of names(soundex)
+format the JSON data
+
+Two ways to enter names: select with radio button (1,2) to select
+1) Enter a comma-separated string in a box
+split the string and put the pieces into nameArray
+error-trap a no-entry box
+2) Load a file of names into nameArray (file operation)
+maybe show in a table widget?
+
+Generate List of Names with Soundex Codes
+a) loop/iterate nameArray items into the getSoundexCode function
+b) format results into kv pairs
+c) store kv pairs in object instances (like a dict)
+d) serialize the object instances into a JSON file
+e) display the JSON file on the browser
+
+Pretty-print the soundex list 
+a) format is "${name} ({soundex})" sorted by name
+b) either use the object or load the JSON file 
+c) last separator is "and"
+d) print to console, or to plain text file (maybe a radio button?)
+
+

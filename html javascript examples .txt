@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<!--Code blocks (in {}) is to define statements to be executed together-->
+<!--Variables declared inside a { } block cannot be accessed from outside the block-->
+<!--The let keyword defines a block variable (block scope)-->
+<!--The const keyword defines a block constant-->
+<!--let and const are not hoisted-->
+<!--Variables declared with the var always have Global Scope-->
+<!--Variables declared with var inside a { } block can be accessed from outside the block-->
+<!--Variables declared within function are Local and can only be accessed within the function-->
+<!--Code after double slashes // or between /* and */ is treated as a comment-->
+<!--Use const if the value or type should not be changed. Use let if you can't use const-->
+<!--You cannot re-declare a variable declared with let or const-->
+<!--The object data type can contain an object, an array, or a date-->
+<!--Objects are variables that can contain many values-->
+<!--When variable is declared with "new", the variable is created as an object-->
+<!--Avoid String, Number, and Boolean objects-->
+
+<head>
+
+<p id="demo">JavaScript can change the style of an HTML element.</p>
+
+<script>
+<!-- To access an HTML element, use the document.getElementById(id) method-->
+document.getElementById('demo').style.fontSize = "35px";
+</script>
+
+<script>
+<!--declare an object using { }-->
+const person = {firstName:"John", lastName:"Doe", age:50, eyeColor:"blue"};
+
+<!--HTML events are "things" that happen to HTML elements--> 
+<!--When JavaScript is used in HTML pages, JavaScript can "react" on these events-->
+<!--HTML events are "things" that happen to HTML elements. 
+<!--When JavaScript is used in HTML pages, JavaScript can "react" on these events-->
+
+</head>
+
+<body>
+
+<!--can also put script in <body> tag-->
+
+<script>
+<!--you can put Javascript functions in the script-->
+<!--The innerHTML property is a common way to display data in HTML-->
+<!--Accessing a function without () returns the function and not the function result-->
+<!--You can use variable to store the value of , or use a function directly, as a variable value:
+<!--example: let text = "The temperature is " + toCelsius(77) + " Celsius";
+
+function myFunction() {
+  document.getElementById("demo").innerHTML = "Paragraph changed.";}
+</script>
+
+<script>
+<!--creating an object-->
+<!--The properties are the name:value pairs-->
+const car = {type:"Fiat", model:"500", color:"white"};
+<!--car.type; returns "Fiat"
+</script>
+
+<!--Methods are actions to be performed on objects, stored as functions-->
+<!--A method can be stored as a function in a property-->
+<!--In an object method, "this" refers to the object. In a function, "this" refers to the global object.-->
+<!--for example: this.fullName() calls the result of the function 
+that defines the fullName property of the person object. Without the ()
+it returns the code of the function itself-->
+
+<script>
+<!-- <p id=tag creates an identifier for the paragraph element-->
+
+<p id="demo">Button Text</p>
+<button type="button" onclick="myFunction()">Try it</button>
+
+</script>
+
+<script>
+<!--window.alert pops up the Javascript result in a window-->
+<!--the window object is the global scope object-->
+
+window.alert(5 + 6);
+</script>
+
+<!--you can call the console.log() method in the browser to display data
+<!--this is good for debugging-->
+<script>
+console.log(5 + 6);
+</script>
+
+<script>
+<!--use window.print method to print whole browser page-->
+
+<button onclick="window.print()">Print this page</button>
+</script>
+
+<!--loading Javascript code from a separate file (*.js) -->
+
+<script src="/path/myScript1.js"></script>
+<script src="/path2/myScript2.js"></script>
+
+</body>
+</html>
+
+scripts in <head> or <body>

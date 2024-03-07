@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<title>Rock Miller - Soundex (Lab04)</title>
+<head>
+    <style>
+        table, th, td {
+          border: 1px solid black;
+          border-collapse: collapse;
+        }
+        th, td {
+          padding: 15px;
+        }
+    </style>
+</head>
+<body>
+<h4>Soundex Values for Proper Names</h4>
+<p></p>
+<p id="prompt"></p>
+<script>
+let inputString;
+do {
+inputString = prompt("Enter the names (separated by a comma)");
+} while (!inputString);
+//document.getElementById("prompt").innerHTML = inputString;
+splitArray = inputString.split(',')
+//console.log(splitArray)
+//trim the array values
+nameArray=[]
+for (let i in splitArray) {
+    nameArray.push(splitArray[i].trim())}
+    console.log(nameArray)
+    nameOutput = nameArray.toString()
+    console.log(nameOutput)
+</script>
+<p id="namelist"></p>
+<script>
+let entryText = "";
+let len = nameArray.length;
+console.log(len)
+if (len == 1) {
+    entryText = nameArray[0];
+}
+else {
+    entryText = nameArray.slice(0,Math.max(1,len-1)).join(', ') + ' and ' + nameArray[len-1];
+}
+printText = "Names you entered: \n\n"+entryText
+document.getElementById("namelist").innerHTML = printText;
+</script>
+
+<p id="soundex_function"></p>
+<script>
+
+//https://www.codedrome.com/the-soundex-algorithm-in-javascript/
+soundexFunc = function(name)
+{
+    let s = [];
+    let si = 1;
+    let c;
+
+    //              ABCDEFGHIJKLMNOPQRSTUVWXYZ
+    let mappings = "01230120022455012623010202";
+
+    s[0] = name[0].toUpperCase();
+
+    for(let i = 1, l = name.length; i < l; i++)
+    {
+        c = (name[i].toUpperCase()).charCodeAt(0) - 65;
+
+        if(c >= 0 && c <= 25)
+        {
+            if(mappings[c] != '0')
+            {
+                if(mappings[c] != s[si-1])
+                {
+                    s[si] = mappings[c];
+                    si++;
+                }
+
+                if(si > 3)
+                {
+                    break;
+                }
+            }
+        }
+    }
+
+    if(si <= 3)
+    {
+        while(si <= 3)
+        {
+            s[si] = '0';
+            si++;
+        }
+    }
+
+    return s.join("");
+}
+//creating an array of objects containing names and soundex codes
+soundexCodes=[]
+for (let i in nameArray) {
+    codeObject = {}
+    codeObject['name'] = nameArray[i];
+    codeObject['soundex'] = soundexFunc(nameArray[i])
+    soundexCodes.push(codeObject);}
+console.log(soundexCodes);
+</script>
+<p>Soundex results:</p>
+<p id="table"></p>
+<script>
+
+  let tabletext = "<table border='2'><tr><td><b>Name</b><td><b>Soundex</b></td></tr>"
+  for (let i in soundexCodes) {
+    tabletext += "<tr><td>" + soundexCodes[i].name + "<td>"+soundexCodes[i].soundex+"</td></tr>";
+  }
+  tabletext += "</table>"
+  console.log(table)
+  document.getElementById("table").innerHTML = tabletext;
+</script>
+<p>JSON object:</p>
+<p id="json"></p>
+<script>
+// creating and displaying a JSON object from the Javascript object
+codeJSON = JSON.stringify(soundexCodes);
+console.log(codeJSON)
+document.getElementById("json").innerHTML = codeJSON;
+</script>
+</body>
+</html>
