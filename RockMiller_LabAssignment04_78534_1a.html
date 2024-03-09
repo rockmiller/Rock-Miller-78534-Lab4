@@ -13,7 +13,7 @@
     </style>
 </head>
 <body>
-<h4>Soundex Values for Proper Names</h4>
+<h3>Soundex Values for Proper Names</h3>
 <p></p>
 <p id="prompt"></p>
 <script>
@@ -21,9 +21,8 @@ let inputString;
 do {
 inputString = prompt("Enter the names (separated by a comma)");
 } while (!inputString);
-//document.getElementById("prompt").innerHTML = inputString;
 splitArray = inputString.split(',')
-//console.log(splitArray)
+
 //trim the array values
 nameArray=[]
 for (let i in splitArray) {

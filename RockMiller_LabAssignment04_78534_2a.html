@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<title>Number Suffixes Rock Miller (Lab04)</title>
+<head>
+    <style>
+        table, th, td {
+          border: 1px solid black;
+          border-collapse: collapse;
+        }
+        th, td {
+          padding: 15px;
+        }
+    </style>
+</head>
+<body>
+<h3>Suffixes for Numbers</h3>
+<p></p>
+<p id="prompt"></p>
+<script>
+let inputString;
+do {
+inputString = prompt("Enter the numbers (separated by a comma)");
+} while (!inputString);
+splitArray = inputString.split(',')
+
+//trim the array values
+numArray=[];
+for (let i in splitArray) {
+    numArray.push(splitArray[i].trim());}
+    console.log(numArray);
+    numString = numArray.join(', ');
+    console.log(numString);
+printText = "Numbers you entered: \n\n"+numString;
+document.getElementById("prompt").innerHTML = printText;
+</script>
+
+<p id="suffixes"></p>
+<script>
+ex1 = {"1":"st","2":"nd","3":"rd","4":"th","5":"th","6":"th","7":"th","8":"th","9":"th","0":"th"}
+ex2 = {"10":"th","11":"th","12":"th","13":"th"}
+sufArray = []
+for (let i in numArray) {
+    let j = ex1[numArray[i].slice(-1)];
+    let k = ex2[numArray[i].slice(-2)];
+    let m;
+    if (k == undefined) {m = j;}
+    else {m = k;}
+    let n = numArray[i]+m 
+    sufArray.push(n);
+}
+console.log(sufArray)
+//const pArray = numArray.map((num,idx) => num+sufArray[idx])
+let sufString = sufArray.join(', ');
+sufPrint = "Formatted numbers: \n\n"+sufString;
+document.getElementById("suffixes").innerHTML = sufPrint;
+</script>
